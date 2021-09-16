@@ -1,14 +1,10 @@
-#game div {
-  border: 2px solid steelblue;
-  width: 15%;
-  height: 250px;
-  margin: 2%;
-  display: inline-block;
-}
 
 body{
   background-color: black;
   margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #startButton {
@@ -16,45 +12,21 @@ body{
 }
 
 h1{
-  text-align: center;
   text-transform: uppercase;
   color: steelblue;
-}
-
-#header{
-  background-color: black;
-  margin-top: 0px;
-  border-bottom: 3px;
-  border-color: steelblue;
-  border-bottom-style: solid;
-}
-
-
-#startButton{
-  display: flex;
-  justify-content: center;
 }
 
 button{
   background-color: aliceblue;
   color: steelblue;
-  height:40px;
-  width: 200px;
+  height:4vw;
+  width: 20vw;
   text-transform: uppercase;
   border-radius: 10px;
   border-style: solid;
   border-width: 3px;
   border-color: steelblue;
-  font-size: 1em;
-}
-
-#game{
-  background-color: aliceblue ;
-  display: flex;
-  justify-content: center;
-  word-wrap: normal;
-  flex-wrap: wrap;
-  border-bottom: 3px solid steelblue;
+  font-size: 1.5vw;
 }
 
 #score{
@@ -67,6 +39,9 @@ button{
   text-align: center;
   text-transform: uppercase;
   color: steelblue;
+  height:5vw;
+  width: 30vw;
+  font-size:1.5vw;
 }
 
 #bestScore{
@@ -75,6 +50,25 @@ color: lightcoral
 
 #currentScore{
   color: olivedrab;
+}
+
+#game{
+  background-color: aliceblue ;
+  width: 80%;
+  height:500px;
+  display: flex;
+  justify-content: center;
+  word-wrap: normal;
+  flex-wrap: wrap;
+  border: 3px solid steelblue;
+  border-radius: 20px;
+}
+
+#game div {
+  border: 2px solid steelblue;
+  width: 15%;
+  height: 226px;
+  margin: 10px 1.8% 10px 1.8%;
 }
 
 .red{
