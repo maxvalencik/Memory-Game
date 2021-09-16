@@ -3,7 +3,6 @@ const gameContainer = document.getElementById("game");
 let clickNumber;
 let score;
 let completePair;
-let completedPairs = [];
 //initialize best score from local storage
 bestScoreInit();
 
@@ -51,8 +50,8 @@ function createDivsForColors(colorArray) {
     // create a new div
     const newDiv = document.createElement("div");
 
-    // give it a class attribute for the value we are looping over
-    newDiv.classList.add(color);
+    // give it a class attribute for the value we are looping over and hidden class (hidden will override color if declared last in the css)
+    newDiv.classList.add(color, 'hidden');
 
     // call a function handleCardClick when a div is clicked on
     newDiv.addEventListener("click", handleCardClick);
@@ -69,41 +68,27 @@ function handleCardClick(event) {
   //reduce click counter
   clickNumber--;
   
+  // Change background color of card when clicked on
+  //Remove class hidden to the card clicked
+  card.classList.remove('hidden');
+  card.setAttribute('id','clicked');
+
   //no more than two tries
-  if (clickNumber>=0){
+  if (clickNumber===0){
     //Increase score by 10 per click
     score+=10; 
     showScore(score);
 
-    //Select all div on the page with a style and put them in an Array
-    //Compare the colors in the array with the colors of completed pair
-    //if equal, remove them from the playCard array so only the color of the  card clicked is used to find a match
-    const playCards = document.querySelectorAll('div[style]');//nodeList
-    const myArray= Array.from(playCards);///convert node list to array
-       console.log(myArray);
-    for (let i=0; i<myArray.length; i++){
-      for (let pairColor of completedPairs){
-        if(myArray[i]!==null){
-          if (myArray[i].style.backgroundColor===pairColor){
-            myArray[i]=null;
-          }
-        }
+    let playCard = document.querySelectorAll("#clicked");
+    //Click on same card...send alert and delete styles for the game to continue
+      if (playCard.length===1){
+        setTimeout(function(){alert('Do not play the same card!');},10)
+        setTimeout(function(){card.classList.add('hidden');playCard[0].removeAttribute('id');playCard[0].classList.add('hidden');clickNumber=2;},10);
       }
-    }
-    const playCard = myArray.filter(e=>e!==null); 
 
-    // Change background color of card when clicked on
-    //Get the value in the class and assigns it to the background 
-    let cardColor = card.classList.value;
-    card.style.backgroundColor = cardColor;
-
-    //Enter the loop for logic testing only if one card is already turned
-    if (playCard[0]!=null){ 
-      //first card turned and second card clicked have same background && cards are different...it's a match
-      if(playCard[0].style.backgroundColor===cardColor && card !== playCard[0]){
-        setTimeout(function(){alert("It's a match! ... Keep going to complete the game!");},10);
-        //one pair completed added to the array of completed pairs
-        completedPairs.push(cardColor);
+      else if(playCard[0].className===playCard[1].className){
+        playCard[0].setAttribute('id','on');
+        playCard[1].setAttribute('id','on');
         clickNumber=2;
         completePair++;
         //end of game
@@ -114,19 +99,11 @@ function handleCardClick(event) {
           score=0;
           setTimeout(function(){alert("You win...use start button to play again!");},10);
         }
-        
       }
-      //Click on same card...send alert and delete styles for the game to continue
-      else if (card === playCard[0]){
-        setTimeout(function(){alert('Do not play the same card!');},10)
-        setTimeout(function(){card.removeAttribute('style');playCard[0].removeAttribute('style');clickNumber=2;},10);
-      }
-      //Try again...also remove the style so the game can be played again (bug: sometimes the word 'style' remains as attribute in the div) 
       else{
-        setTimeout(function(){card.removeAttribute('style');playCard[0].removeAttribute('style');clickNumber=2;console.log(playCard[0], card)},1000);
+        setTimeout(function(){playCard[0].classList.add('hidden');playCard[0].removeAttribute('id');playCard[1].removeAttribute('id');playCard[1].classList.add('hidden');clickNumber=2;},1000);
+      }
     }
-    }
-  }
 }
 
 //reset the game board

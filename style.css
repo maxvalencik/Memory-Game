@@ -90,3 +90,7 @@ color: lightcoral
 .green{
   background-image: url(green.jpeg);
 }
+
+.hidden{
+  background-image: url(question.jpeg);
+}
