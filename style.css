@@ -76,3 +76,23 @@ color: lightcoral
 #currentScore{
   color: olivedrab;
 }
+
+.red{
+  background-image: url(red.jpeg);
+}
+
+.blue{
+  background-image: url(blue.jpeg);
+}
+
+.purple{
+  background-image: url(purple.jpeg);
+}
+
+.orange{
+  background-image: url(orange.jpeg);
+}
+
+.green{
+  background-image: url(green.jpeg);
+}
