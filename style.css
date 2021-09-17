@@ -17,31 +17,30 @@ h1{
 }
 
 button{
-  background-color: aliceblue;
+  background-color: lightcoral;
   color: steelblue;
-  height:4vw;
-  width: 20vw;
+  height:2vw;
+  width: 10vw;
   text-transform: uppercase;
   border-radius: 10px;
   border-style: solid;
   border-width: 3px;
   border-color: steelblue;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 
 #score{
   border: 3px solid steelblue;
   border-radius: 10px;
   background-color: aliceblue;
-  width: 20%;
-  padding: 1% 0 1% 0;
-  margin: 0% 40% 2% 40%;
+  padding: 0.5% 0 0.5% 0;
+  margin-bottom: 1%;
   text-align: center;
   text-transform: uppercase;
   color: steelblue;
-  height:5vw;
-  width: 30vw;
-  font-size:1.5vw;
+  height:8%;
+  width: 15vw;
+  font-size:0.8vw;
 }
 
 #bestScore{
@@ -73,24 +72,42 @@ color: lightcoral
 
 .red{
   background-image: url(red.jpeg);
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: center;
 }
 
 .blue{
   background-image: url(blue.jpeg);
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: center;
 }
 
 .purple{
   background-image: url(purple.jpeg);
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: center;
 }
 
 .orange{
   background-image: url(orange.jpeg);
+  background-repeat: no-repeat;
+  background-size: 600px;
+  background-position: center;
 }
 
 .green{
   background-image: url(green.jpeg);
+   background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: center;
 }
 
 .hidden{
   background-image: url(question.jpeg);
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position: center;
 }
